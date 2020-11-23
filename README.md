@@ -1,0 +1,2 @@
+# smapplication
+Stock Management App
