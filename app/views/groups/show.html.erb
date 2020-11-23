@@ -1,0 +1,39 @@
+ <div class="row col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3">
+
+
+   <h1 class="text-center">Groups</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @group.name %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @group.desc %>
+</p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @group.section %>
+</p>
+
+<br>
+
+<div class="row">
+<%= link_to '<i class="fa fa-pencil-square-o" style="font-size: 2em;"></i>'.html_safe, edit_store_section_group_path(@group), class: "center-block", title: "Edit" %>
+</div>
+
+<br>
+
+<div class="row">
+<%= link_to '<i class="fa fa-arrow-left" style="font-size: 2em;"></i>'.html_safe, store_section_groups_path(@group.section), class: "center-block", title: "Back" %>
+</div>
+</div>
+</div>
+
+
+
+
+

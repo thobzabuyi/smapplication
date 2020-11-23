@@ -1,0 +1,67 @@
+
+<h1 class="text-center" style="color: #adb5bd;">Manager</h1>
+<br>
+<div class="row col-md-offset-3"> 
+  <div class="col-md-6 col-md-offset-5">
+   
+
+<p>
+  <strong>First Name:</strong>
+  <%= @manager.fname %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @manager.lname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @manager.email %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @manager.contact %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @manager.role %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @manager.address %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @manager.username %>
+</p>
+
+<p>
+  <strong>Store:</strong>
+  <%= @manager.store %>
+</p>
+
+<% if manager_in? %>
+<div class="row">
+<%= link_to '<i class="fa fa-pencil-square-o" style="font-size: 2em;"></i>'.html_safe, edit_store_manager_path(@manager.store,@manager), class: "center-block", title: "Edit" %>
+</div> |
+
+<div class="row">
+<%= link_to '<i class="fa fa-arrow-left" style="font-size: 2em;"></i>'.html_safe, store_path(current_user.store_id), class: "center-block", title: "Back" %>
+</div>
+
+<% else %>
+
+<div class="row">
+<%= link_to '<i class="fa fa-arrow-left" style="font-size: 2em;"></i>'.html_safe, store_managers_path, class: "center-block", title: "Back" %>
+</div>
+
+<% end %>
+ 
+</div>
+</div>
+

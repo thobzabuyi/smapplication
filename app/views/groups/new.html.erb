@@ -1,0 +1,13 @@
+<div class="row col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3">
+   <h1 class="text-center">New Group</h1>
+
+
+<%= render 'form', group: @group %>
+<br>
+
+<div class="row">
+<%= link_to '<i class="fa fa-arrow-left" style="font-size: 2em;"></i>'.html_safe, store_section_groups_path(@group.section), class: "center-block", title: "Back" %>
+</div>
+</div>
+</div>

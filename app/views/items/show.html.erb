@@ -1,0 +1,61 @@
+
+ <div class="row col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3">
+   <h1 class="text-center">Items</h1>
+<p>
+  <strong>Item name:</strong>
+  <%= @item.item_name %>
+</p>
+
+<p>
+  <strong>Brand name:</strong>
+  <%= @item.brand_name %>
+</p>
+
+<p>
+  <strong>Qualntity:</strong>
+  <%= @item.qualntity %>
+</p>
+
+<p>
+  <strong>Open stck:</strong>
+  <%= @item.open_stck %>
+</p>
+
+<p>
+  <strong>Clasing stock:</strong>
+  <%= @item.clasing_stock %>
+</p>
+
+<p>
+  <strong>Cost price:</strong>
+  <%= @item.cost_price %>
+</p>
+
+<p>
+  <strong>Sell price:</strong>
+  <%= @item.sell_price %>
+</p>
+
+<p>
+  <strong>Profit:</strong>
+  <%= @item.profit %>
+</p>
+
+<p>
+  <strong>Sold stock:</strong>
+  <%= @item.sold_stock %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @item.group %>
+</p>
+<br>
+
+<div class="row">
+<%= link_to '<i class="fa fa-arrow-left" style="font-size: 2em;"></i>'.html_safe, store_section_group_items_path(@item.group), class: "center-block", title: "Back" %>
+</div>
+</div>
+</div>
+

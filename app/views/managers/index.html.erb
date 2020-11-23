@@ -1,0 +1,46 @@
+<div class="row col-md-12">
+  <div class="col-md-10 col-md-offset-1">
+    
+    <h1 class="text-center">Managers</h1>
+
+<table class="table table-striped table-dark">
+  <thead class="thead-light">
+    <tr>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>Email</th>
+      <th>Contact</th>
+      <th>Address</th>
+      <th>Store</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @managers.each do |manager| %>
+      <tr>
+        <td><%= manager.fname %></td>
+        <td><%= manager.lname %></td>
+        <td><%= manager.email %></td>
+        <td><%= manager.contact %></td>
+        <td><%= manager.address %></td>
+        <td><%= manager.store_id %></td>
+        <td><%= link_to '<i class="fa fa-user-circle"></i>'.html_safe, [manager.store,manager], title: "View" %></td>
+        <td><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_store_manager_path(manager.store, manager),title: "Edit"%></td>
+        <% if can? :destroy, Manager %>
+         <td><%= link_to '<i class="fa fa-user-times"></i>'.html_safe, [manager.store,manager], method: :delete, data: { confirm: 'Are you sure?' },title: "Delete"  %></td>
+         <% end %>
+         <% if can? :create, Manager %>
+        <td><%= link_to '<i class="fa fa-arrow-left"></i>'.html_safe, stores_path, title: "Back" %></td>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<div class="row">
+<% if can? :create, Manager %>
+<%= link_to '<i class="fa fa-user-plus" style="font-size: 2em;"></i> New Manager'.html_safe, new_store_manager_path %> | 
+<%= link_to '<i class="fa fa-arrow-left" style="font-size: 2em;"></i>'.html_safe, stores_path, title: "Back" %>
+<% end %>
+</div>

@@ -1,0 +1,56 @@
+<div id="login-button">
+  <%= image_tag("https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png", img_alt:"Rails") %>
+</div>
+<div id="container">
+  <h1>Log In</h1>
+        <%= form_for(:session, url: login_path, remote: request.xhr?, html: { data: { modal: true } }) do |f| %>
+       
+       <div class= "form-group">
+        <%= f.text_field :username, class: 'form-control', placeholder: "Username" %>
+       </div>
+      
+        <div class="form-group">
+        <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+        </div>
+
+        <div class="form-group">
+        <button class="center-block btn-outline-secondary" type="submit" ><i class="fa fa-sign-in"></i> Login </button>
+        </div>
+
+      <% end %>
+</div>
+
+
+<script type="text/javascript">
+  $('#login-button').click(function(){
+  $('#login-button').fadeOut("slow",function(){
+    $("#container").fadeIn();
+    TweenMax.from("#container", .4, { scale: 0, ease:Sine.easeInOut});
+    TweenMax.to("#container", .4, { scale: 1, ease:Sine.easeInOut});
+  });
+});
+
+</script>
+
+<style type="text/css">
+
+#container{
+  padding: 10px;
+}
+
+h1{
+  font-weight: bold;
+}
+  .form-control {
+  font-size: 18px;
+  margin-top: 25px;
+}
+
+.center-block {
+  font-size: 2em;
+  margin-top: 20px;
+  color: #adb5bd;
+  font-weight: bold;
+}
+</style>
+

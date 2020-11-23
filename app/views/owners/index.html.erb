@@ -1,0 +1,107 @@
+
+<div class="row col-md-12">
+<div class="col-md-10 col-md-offset-1">
+
+ <h1 class="text-center" style="color: #adb5bd;">Owners</h1>
+
+<div class="row">
+ <% @owners.each do |owner| %>
+  <div class="col-md-1"></div>
+    <div class="col-md-5 no-padding lib-item" data-category="ui">
+      <div class="lib-panel">
+        <div class="row box-shadow">
+            <div class="col-md-4">
+              <img class="lib-img"><%= image_tag("http://appinject.top/csr2-hack/img/icon.png") %>
+            </div>
+              <div class="col-md-12">
+              <div class="lib-row lib-header">
+              <%= owner.fname %> <%= owner.lname %>
+              <div class="lib-header-seperator"></div>
+              <small><%= link_to 'Show', owner %> | <%= link_to 'Edit', edit_owner_path(owner) %> | <%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %></small>
+              <div class="lib-header-seperator"></div>
+              </div>
+              <div class="lib-row lib-desc">
+              <ul style="list-style: none;">
+                <li>Address: <%= owner.address %></li>
+                <li>Contact: <%= owner.contact %></li>
+                <li>Email: <%= owner.email %></li>                           
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+</div>
+<style type="text/css">
+
+.lib-panel {
+    margin-bottom: 20px;
+}
+.lib-panel img {
+    width: 70%;
+    background-color: transparent;
+}
+
+.lib-panel .row,
+.lib-panel .col-md-10 {
+    padding: ;
+    background-color: #878787;
+    border-radius: 10px;
+}
+
+
+.lib-panel .lib-row {
+    padding: 20px;
+}
+
+.lib-panel .lib-row.lib-header {
+    background-color: #606060;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+}
+
+.lib-panel .lib-row.lib-header .lib-header-seperator {
+    height: 2px;
+    width: 20px;
+    background-color: #d9d9d9;
+    margin: 7px;
+}
+
+.lib-panel .lib-row.lib-desc {
+    position: relative;
+    height: 100%;
+    display: block;
+    font-size: 13px;
+    padding-right: 20px;
+}
+.lib-panel .lib-row.lib-desc a{
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    left: 100px;
+    right: 100px;
+}
+
+.row-margin-bottom {
+    margin-bottom: 20px;
+}
+
+.box-shadow {
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.10);
+}
+
+.no-padding {
+    padding: 0;
+}
+
+</style>
+<br>
+
+<div class="row">
+<%= link_to '<i class="fa fa-user-plus" style="font-size: 2em;"></i> New User'.html_safe, new_owner_path %>
+</div>
+</div>
+</div>

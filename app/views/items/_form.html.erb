@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <%= form_for([@item.group.section.store, @item.group.section,@item.group, @item]) do |form| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :item_name %>
+    <%= form.text_field :item_name, id: :item_item_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :brand_name %>
+    <%= form.text_field :brand_name, id: :item_brand_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :quantity %>
+    <%= form.number_field :qualntity, id: :item_qualntity, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :open_stock %>
+    <%= form.number_field :open_stck, id: :item_open_stck, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :closing_stock %>
+    <%= form.number_field :clasing_stock, id: :item_clasing_stock, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cost_price %>
+    <%= form.text_field :cost_price, id: :item_cost_price, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :sell_price %>
+    <%= form.text_field :sell_price, id: :item_sell_price, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :profit %>
+    <%= form.text_field :profit , id: :item_profit, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :sold_stock %>
+    <%= form.number_field :sold_stock, id: :item_sold_stock, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :group_id %>
+    <%= form.text_field :group_id, id: :item_group_id, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit class: "btn btn-secondary col-md-12" %>
+  </div>
+<% end %>
+</div>
+</div>
+

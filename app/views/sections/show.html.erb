@@ -1,0 +1,34 @@
+<p>
+  <strong>Sec code:</strong>
+  <%= @section.sec_code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @section.name %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @section.desc %>
+</p>
+
+<p>
+  <strong>Store:</strong>
+  <%= @section.store %>
+</p>
+</div>
+</div>
+
+
+<br>
+
+<div class="row">
+<%= link_to '<i class="fa fa-pencil-square-o" style="font-size: 2em;"></i>'.html_safe, edit_store_section_path(@section.store, @section), class: "center-block", title: "Edit" %>
+</div>
+
+<br>
+
+<div class="row">
+<%= link_to '<i class="fa fa-arrow-left" style="font-size: 2em;"></i>'.html_safe, store_sections_path(@section.store), class: "center-block", title: "Back" %>
+</div>

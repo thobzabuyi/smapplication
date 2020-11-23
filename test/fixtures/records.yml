@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  store: MyString
+  section: MyString
+  group: MyString
+  quantity: 1
+  item: one
+
+two:
+  store: MyString
+  section: MyString
+  group: MyString
+  quantity: 1
+  item: two

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sec_code: MyString
+  name: MyString
+  desc: MyString
+  store: one
+
+two:
+  sec_code: MyString
+  name: MyString
+  desc: MyString
+  store: two

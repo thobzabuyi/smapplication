@@ -1,0 +1,11 @@
+<div class="row col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3">
+   <h1 class="text-center" style="color: #adb5bd;">Editing Manager</h1>
+
+<%= render 'form', manager: @manager %>
+
+<% if can? :update, Manager%>
+<div class="row">
+<%= link_to '<i class="fa fa-arrow-left" style="font-size: 2em;"></i>'.html_safe, store_path(current_user.store_id), class: "center-block", title: "Back" %>
+</div>
+<% end %>

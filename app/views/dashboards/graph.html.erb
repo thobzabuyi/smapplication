@@ -1,0 +1,410 @@
+<h1 class="text-center"> ★彡 DASHBOARD 彡★</h1>
+
+
+<script src="https://code.highcharts.com/modules/variable-pie.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<script src="https://code.highcharts.com/themes/dark-unica.js"></script>
+
+
+
+<style type="text/css">
+  #container, #container2, #container3, #container4 {
+  min-width: 300px;
+  max-width: 800px;
+  height: 500px;
+  margin: 1em auto;
+  font-family: verdana, arial, helvetica, sans-serif;
+  
+}
+
+</style>
+
+<div class="row col-md-12 col-md-offset-3">
+<div id="container" class="row col-md-6"></div>
+<div id="container2" class="row col-md-6"></div>
+<div id="container3" class="row col-md-6"></div>
+<div id="container4" class="row col-md-6"></div>
+</div>
+
+<script type="text/javascript">
+ var prof = [];
+    var prof1 = [];
+  <% @sto.each do |store| %>
+   prof.push(<%= store.profit %>);
+   prof1.push("<%= store.name %>");
+<% end %>
+var cost_price = [];
+  <% @cost.each do |cost| %>
+   cost_price.push(<%= cost.costs %>);
+   prof1.push("<%= cost.name %>");
+<% end %>
+var selling_price = [];
+  <% @sell.each do |sale| %>
+   selling_price.push(<%= sale.selling %>);
+<% end %>
+
+  var openings = [];
+  <% @opening.each do |opens| %>
+   openings.push(<%= opens.open_stock %>);
+<% end %>
+var closings = [];
+  <% @closing.each do |close| %>
+   closings.push(<%= close.closing_stock %>);
+<% end %>
+var solds = [];
+  <% @sold.each do |sales| %>
+   solds.push(<%= sales.sold_stock %>);
+<% end %>
+
+
+  Highcharts.chart('container', {
+    chart: {
+        type: 'column',
+        style: {
+          fontFamily: 'verdana, arial, helvetica, sans-serif',
+        }
+    },
+    title: {
+        text: 'Sales Revenue',
+        style: {
+                  fontWeight: 'bold',
+                }
+    },
+    xAxis: {
+        categories: prof1,
+        crosshair: true,
+        labels: {
+                style: {
+                    fontSize:'18px',
+                    
+                }
+            }
+    },
+    yAxis: {
+        labels: {
+                style: {
+                    fontSize:'16px',
+
+                }
+            },
+        min: 0,
+        title: {
+            text: 'Totals (R)',
+            style: {
+                  fontWeight: 'bold',
+                  fontSize:'16px',
+                  fontFamily: 'verdana, arial, helvetica, sans-serif',
+                    
+                }
+            },
+        },
+    tooltip: {
+        headerFormat: '<span style="font-size:18px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + 
+            '<td style="padding:0"><b>R {point.y:.1f}</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Profit',
+        data: prof
+
+    }, {
+        name: 'Cost Price',
+        data: cost_price
+
+    }, {
+        name: 'Selling Price',
+        data: selling_price
+
+    }]
+});
+    Highcharts.chart('container2', {
+      chart: {
+        style: {
+          fontSize: '11px',
+          fontFamily: 'sans-serif',
+        }
+    },
+
+    title: {
+        text: 'Stock Analysis',
+        style: {
+           fontWeight: 'bold',
+          fontFamily: 'verdana, arial, helvetica, sans-serif'
+        }
+    },
+
+    yAxis: {
+        title: {
+            text: 'Quantity (Per Store)',
+            style: {
+                  fontWeight: 'bold',
+                  fontSize:'16px',
+                  fontFamily: 'verdana, arial, helvetica, sans-serif',
+                    
+                }
+        },
+        labels: {
+                style: {
+                    fontSize:'16px',
+                    fontFamily: 'verdana, arial, helvetica, sans-serif'
+                }
+            }
+    },
+
+    xAxis: {
+        categories: prof1,
+        crosshair: true,
+        labels: {
+                style: {
+                    fontSize:'18px',
+                    fontFamily: 'verdana, arial, helvetica, sans-serif'
+                }
+            }
+    },
+
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+  
+
+    series: [{
+        name: 'Opening Stock',
+        data: openings
+
+    }, {
+        name: 'Closing Stock',
+        data: closings
+
+    }, {
+        name: 'Sold Stock',
+        data: solds
+
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+
+});
+</script>
+
+<script type="text/javascript">
+  var prof = [];
+    var prof1 = [];
+  <% @sto.each do |store| %>
+   prof.push(<%= store.profit %>);
+   prof1.push("<%= store.name %>");
+<% end %>
+var cost_price = [];
+  <% @cost.each do |cost| %>
+   cost_price.push(<%= cost.costs %>);
+   prof1.push("<%= cost.name %>");
+<% end %>
+var selling_price = [];
+  <% @sell.each do |sale| %>
+   selling_price.push(<%= sale.selling %>);
+<% end %>
+
+  var openings = [];
+  <% @opening.each do |opens| %>
+   openings.push(<%= opens.open_stock %>);
+<% end %>
+var closings = [];
+  <% @closing.each do |close| %>
+   closings.push(<%= close.closing_stock %>);
+<% end %>
+var solds = [];
+  <% @sold.each do |sales| %>
+   solds.push(<%= sales.sold_stock %>);
+<% end %>
+
+
+Highcharts.chart('container3', {
+  chart: {
+        style: {
+          fontSize: '11px',
+          fontFamily: 'sans-serif',
+        }
+    },
+    title: {
+        text: 'Overview of Stores',
+        style: {
+           fontWeight: 'bold',
+          fontFamily: 'verdana, arial, helvetica, sans-serif'
+        }
+    },
+    xAxis: {
+        categories: prof1,
+        labels: {
+                style: {
+                    fontSize:'18px',
+                    fontFamily: 'verdana, arial, helvetica, sans-serif'
+                }
+            }
+    },
+    yAxis: {
+      title: {
+            text: 'Profit and Sold Margin (Per Store)',
+            style: {
+                  fontWeight: 'bold',
+                  fontSize:'16px',
+                  fontFamily: 'verdana, arial, helvetica, sans-serif',
+                    
+                }
+        },
+        labels: {
+                style: {
+                    fontSize:'16px',
+                    fontFamily: 'verdana, arial, helvetica, sans-serif'
+                }
+            }
+    },
+    labels: {
+        items: [{
+            html: 'Total Profit and Sold Margin',
+            style: {
+                left: '50px',
+                top: '18px',
+                color: (Highcharts.theme && Highcharts.theme.textColor) || 'black',
+                fontSize: '16px',
+                fontFamily: 'verdana, arial, helvetica, sans-serif'
+            }
+        }],
+
+    },
+    series: [{
+        type: 'column',
+        name: 'Profit',
+        data: prof
+    }, {
+        type: 'column',
+        name: 'Cost Price',
+        data: cost_price
+    }, {
+        type: 'column',
+        name: 'Selling Price',
+        data: selling_price
+    }, {
+        type: 'column',
+        name: 'Opening Stock',
+        data: openings
+    }, {
+        type: 'column',
+        name: 'Closing Stock',
+        data: closings
+    }, {
+        type: 'spline',
+        name: 'Sold Stock',
+        data: solds,
+        marker: {
+            lineWidth: 2,
+            lineColor: Highcharts.getOptions().colors[3],
+            fillColor: 'white'
+        }
+    }],
+});
+</script>
+
+<script type="text/javascript">
+  var prof = [];
+    var prof1 = [];
+  <% @sto.each do |store| %>
+   prof.push(<%= store.profit %>);
+   prof1.push("<%= store.name %>");
+<% end %>
+var cost_price = [];
+  <% @cost.each do |cost| %>
+   cost_price.push(<%= cost.costs %>);
+   prof1.push("<%= cost.name %>");
+<% end %>
+var selling_price = [];
+  <% @sell.each do |sale| %>
+   selling_price.push(<%= sale.selling %>);
+<% end %>
+
+  var openings = [];
+  <% @opening.each do |opens| %>
+   openings.push(<%= opens.open_stock %>);
+<% end %>
+var closings = [];
+  <% @closing.each do |close| %>
+   closings.push(<%= close.closing_stock %>);
+<% end %>
+var solds = [];
+  <% @sold.each do |sales| %>
+   solds.push(<%= sales.sold_stock %>);
+<% end %>
+  Highcharts.chart('container4', {
+    chart: {
+        style: {
+          fontSize: '11px',
+          fontFamily: 'sans-serif',
+        }
+    },
+
+    title: {
+        text: 'Sold Stock Per Store',
+        style: {
+           fontWeight: 'bold',
+          fontFamily: 'verdana, arial, helvetica, sans-serif'
+        }
+    },
+
+
+    xAxis: {
+        categories: prof1,
+
+    },
+    plotOptions: {
+pie: {
+dataLabels: {
+      style: {
+        fontSize: '18px',
+        fontFamily: 'verdana, arial, helvetica, sans-serif'
+      }
+    }
+  }
+},
+
+    series: [{
+        type: 'pie',
+        allowPointSelect: true,
+        keys: ['name', 'y', 'selected', 'sliced'],
+        data: [
+            [prof1[0], solds[0], false],
+            [prof1[1], solds[1], false],
+            [prof1[2], solds[2], false],
+            [prof1[3], solds[3], false],
+            [prof1[4], solds[4], false],
+            [prof1[5], solds[5], false],
+            [prof1[6], solds[6], false]
+        ],
+        showInLegend: true
+    }]
+});
+</script>

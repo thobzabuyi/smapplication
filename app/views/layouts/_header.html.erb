@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>S.M System</title>
+  <!-- Bootstrap core CSS-->
+  <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+ 
+</head>
+
+<body>
+ <style>
+    body {
+      font-family: verdana, arial, helvetica, sans-serif;
+      transition: background-color .5s;
+      background-color: #1c1b1a;
+    }
+
+
+    .sidenav {
+       
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #000;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #adb5bd;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+  
+  <nav class="navbar navbar-default bg-dark navbar-dark ">
+    <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <p><span style="font-size:25px;color:#adb5bd;cursor:pointer;" onclick="openNav()">&#9776; Menu</span></p>
+      </ul>
+        <ul class="nav navbar-nav navbar-right">  
+          <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+          <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+<div id="main">
+      <div class="row">
+<div class="container" id="padding_top"><%= yield %></div>
+</div>
+</div>
+
+ <% if can? :create, Manager %>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a><%= link_to '<i class="fa fa-tachometer"></i>Dashboard'.html_safe, graph_path, class: "nav-link" %></a>
+  <a><%= link_to '<i class="fa fa-shopping-cart"></i>Store'.html_safe, stores_path, class: "nav-link " %></a>
+  <a><%= link_to '<i class="fa fa-user-o"></i>Owner'.html_safe, owners_path, class: "nav-link" %></a>
+  <a><%= link_to '<i class="fa fa-shopping-basket"></i>Stock-List'.html_safe, stocklist_path, class: "nav-link" %></a>
+</div>
+<% end %>
+ 
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "#6b6b6b";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "#1c1b1a";
+}
+</script>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <%= link_to "Logout", logout_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>
+
+

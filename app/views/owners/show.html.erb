@@ -1,0 +1,45 @@
+
+<p>
+  <strong>Fname:</strong>
+  <%= @owner.fname %>
+</p>
+
+<p>
+  <strong>Lname:</strong>
+  <%= @owner.lname %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @owner.address %>
+</powner
+<p>
+  <strong>Contact:</strong>
+  <%= @owner.contact %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @owner.email %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @owner.role %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @owner.username %>
+</p>
+
+<br>
+<div class="row">
+<%= link_to '<i class="fa fa-pencil-square-o" style="font-size: 2em;"></i>'.html_safe, edit_owner_path(@owner), class: "center-block", title: "Edit" %>
+</div>
+
+<br>
+
+<div class="row">
+<%= link_to '<i class="fa fa-arrow-left" style="font-size: 2em;"></i>'.html_safe, owners_path, class: "center-block", title: "Back" %>
+</div>

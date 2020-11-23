@@ -1,0 +1,40 @@
+<div class="row col-md-12">
+  <div class="col-md-10 col-md-offset-1">
+    
+    <h1 class="text-center">Stores</h1>
+
+<table class="table table-striped table-dark">
+  <thead class="thead-light">
+    <tr>
+      <th>Storereg no</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Contact</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stores.each do |store| %>
+      <tr>
+        <td><%= store.storereg_no %></td>
+        <td><%= store.name %></td>
+        <td><%= store.address %></td>
+        <td><%= store.contact %></td>
+        <td><%= link_to 'Manager', store_managers_path(store) %></td>
+        <td><%= link_to 'Sections', store_sections_path(store) %></td>
+        <td><%= link_to '<i class="fa fa-eye"></i>'.html_safe, store, title: "View" %></td>
+        <td><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_store_path(store), title: "Edit" %></td>
+        <td><%= link_to '<i class="fa fa-trash"></i>'.html_safe, store, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<div class="row">
+<% if can? :create, Store %>
+<%= link_to '<i class="fa fa-cart-plus" style="font-size: 2em;"></i> New Store'.html_safe, new_store_path %> | <%= link_to '<i class="fa fa-arrow-left" style="font-size: 2em;"></i>'.html_safe, graph_path, title: "Back" %>
+        <% end %>
+</div>
+</div>
+</div>

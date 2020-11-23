@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<%= form_for(@owner) do |form| %>
+  <% if owner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(owner.errors.count, "error") %> prohibited this owner from being saved:</h2>
+
+      <ul>
+      <% owner.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :fname %>
+    <%= form.text_field :fname, id: :owner_fname,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :lname %>
+    <%= form.text_field :lname, id: :owner_lname,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :owner_email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :contact %>
+    <%= form.text_field :contact, id: :owner_contact, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :role %>
+    <%= form.text_field :role, id: :owner_role,class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address %>
+    <%= form.text_area :address, id: :owner_address, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :username %>
+    <%= form.text_field :username, id: :owner_username, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :password %>
+    <%= form.password_field :password, id: :owner_password, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, id: :owner_password_confirmation, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit "Submit", class: "btn btn-secondary col-md-12" %>
+  </div>
+<% end %>
+</div>
+</div>
+
+
